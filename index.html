@@ -3,15 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Landing Page Template</title>
+  <title>Landing Page Template - MyBrand</title>
+  <meta name="description" content="Launch your dream project quickly with a clean and customizable landing page template." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <nav class="navbar">
-      <div class="logo">MyBrand</div>
-      <ul class="nav-links">
+    <nav class="navbar" role="navigation" aria-label="Primary navigation">
+      <div class="logo" tabindex="0">MyBrand</div>
+      <button class="nav-toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Menu">
+        ☰
+      </button>
+      <ul class="nav-links" id="primary-navigation">
         <li><a href="#features">Features</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -19,44 +25,64 @@
     </nav>
   </header>
 
-  <section class="hero" id="hero">
-    <h1>Build Your Dream Project Today</h1>
-    <p>Launch fast with our clean and customizable landing page.</p>
-    <a href="#features" class="btn">Learn More</a>
-  </section>
+  <main>
+    <section class="hero" id="hero" role="region" aria-label="Hero Section">
+      <h1>Build Your Dream Project Today</h1>
+      <p>Launch fast with our clean and customizable landing page.</p>
+      <a href="#features" class="btn" role="button">Learn More</a>
+    </section>
 
-  <section class="features" id="features">
-    <h2>Features</h2>
-    <div class="feature-list">
-      <div class="feature-item">
-        <h3>Responsive Design</h3>
-        <p>Looks great on all devices.</p>
+    <section class="features" id="features" role="region" aria-label="Features Section">
+      <h2>Features</h2>
+      <div class="feature-list">
+        <article class="feature-item" tabindex="0">
+          <h3>Responsive Design</h3>
+          <p>Looks great on all devices.</p>
+        </article>
+        <article class="feature-item" tabindex="0">
+          <h3>Easy to Customize</h3>
+          <p>Simple code with comments.</p>
+        </article>
+        <article class="feature-item" tabindex="0">
+          <h3>Modern Layout</h3>
+          <p>Clean and professional style.</p>
+        </article>
       </div>
-      <div class="feature-item">
-        <h3>Easy to Customize</h3>
-        <p>Simple code with comments.</p>
-      </div>
-      <div class="feature-item">
-        <h3>Modern Layout</h3>
-        <p>Clean and professional style.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="about" id="about">
-    <h2>About Us</h2>
-    <p>We help startups and creators launch beautiful websites quickly.</p>
-  </section>
+    <section class="about" id="about" role="region" aria-label="About Us Section">
+      <h2>About Us</h2>
+      <p>We help startups and creators launch beautiful websites quickly.</p>
+    </section>
 
-  <section class="cta" id="contact">
-    <h2>Ready to get started?</h2>
-    <a href="#" class="btn">Contact Us</a>
-  </section>
+    <section class="cta" id="contact" role="region" aria-label="Call to Action Section">
+      <h2>Ready to get started?</h2>
+      <a href="#" class="btn" role="button">Contact Us</a>
+    </section>
+  </main>
 
-  <footer>
+  <footer role="contentinfo">
     <p>&copy; 2025 MyBrand. All rights reserved.</p>
+    <!-- Placeholder for social links -->
+    <nav aria-label="Social media">
+      <ul class="social-links">
+        <li><a href="#" aria-label="Facebook">Facebook</a></li>
+        <li><a href="#" aria-label="Twitter">Twitter</a></li>
+        <li><a href="#" aria-label="LinkedIn">LinkedIn</a></li>
+      </ul>
+    </nav>
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    // Mobile nav toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.getElementById('primary-navigation');
+    navToggle.addEventListener('click', () => {
+      const expanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
+      navToggle.setAttribute('aria-expanded', !expanded);
+      navLinks.classList.toggle('active');
+    });
+  </script>
 </body>
 </html>
